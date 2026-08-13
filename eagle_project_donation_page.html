@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Support Blake Gurnee's Eagle Scout Service Project." />
+  <title>Support Blake's Eagle Scout Project</title>
+  <style>
+    :root {
+      --navy: #102a43;
+      --blue: #1f5f8b;
+      --gold: #c89b3c;
+      --cream: #f7f4ed;
+      --white: #ffffff;
+      --text: #243b53;
+      --muted: #627d98;
+      --border: #d9e2ec;
+      --shadow: 0 18px 45px rgba(16, 42, 67, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    .hero {
+      background:
+        linear-gradient(135deg, rgba(16,42,67,.96), rgba(31,95,139,.92)),
+        radial-gradient(circle at top right, rgba(200,155,60,.28), transparent 35%);
+      color: white;
+      padding: 72px 20px 88px;
+    }
+
+    .container {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: #f4d58a;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      line-height: 1.02;
+      letter-spacing: -.04em;
+    }
+
+    .hero p {
+      max-width: 680px;
+      font-size: 1.12rem;
+      color: #e6eef5;
+      margin: 0 0 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,.16);
+    }
+
+    .button-gold {
+      background: var(--gold);
+      color: #172b3a;
+    }
+
+    .button-outline {
+      color: white;
+      border-color: rgba(255,255,255,.45);
+      background: rgba(255,255,255,.08);
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.20);
+      backdrop-filter: blur(12px);
+      border-radius: 22px;
+      padding: 28px;
+    }
+
+    .hero-card .label {
+      color: #cfe0ed;
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-weight: 800;
+    }
+
+    .amount {
+      font-size: 3rem;
+      line-height: 1;
+      font-weight: 900;
+      margin: 10px 0 18px;
+    }
+
+    .progress {
+      height: 12px;
+      background: rgba(255,255,255,.18);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      width: 62%; /* CHANGE THIS */
+      height: 100%;
+      background: var(--gold);
+      border-radius: inherit;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 9px;
+      font-size: .88rem;
+      color: #d8e5ee;
+    }
+
+    main { padding: 58px 0 80px; }
+
+    .section {
+      margin-bottom: 58px;
+    }
+
+    .section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      margin: 0 0 12px;
+      color: var(--navy);
+      letter-spacing: -.025em;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0 0 26px;
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .photo-placeholder {
+      min-height: 290px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 25px;
+      color: var(--muted);
+      background: #e9eef3;
+      border: 2px dashed #b8c7d5;
+    }
+
+    .photo-placeholder strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 5px;
+    }
+
+    .budget {
+      display: grid;
+      gap: 12px;
+    }
+
+    .budget-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .budget-row:last-child { border-bottom: 0; }
+    .budget-row strong { color: var(--navy); }
+
+    .donate-section {
+      background: var(--navy);
+      color: white;
+      border-radius: 26px;
+      padding: 42px;
+      box-shadow: var(--shadow);
+    }
+
+    .donate-section h2 { color: white; }
+
+    .donate-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .donate-card {
+      background: white;
+      color: var(--text);
+      border-radius: 18px;
+      padding: 25px;
+    }
+
+    .donate-card h3 {
+      margin: 0 0 7px;
+      color: var(--navy);
+      font-size: 1.35rem;
+    }
+
+    .handle {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: #eef2f6;
+      padding: 9px 11px;
+      border-radius: 9px;
+      display: inline-block;
+      margin: 8px 0 16px;
+      font-size: .95rem;
+    }
+
+    .donate-card .button {
+      width: 100%;
+      background: var(--navy);
+      color: white;
+    }
+
+    .donate-note {
+      margin: 18px 0 0;
+      font-size: .9rem;
+      color: #c9d7e2;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .step-number {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #e9f1f7;
+      color: var(--navy);
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    footer {
+      background: #0b1f31;
+      color: #a9bac8;
+      padding: 28px 20px;
+      text-align: center;
+      font-size: .9rem;
+    }
+
+    footer strong { color: white; }
+
+    @media (max-width: 800px) {
+      .hero-inner,
+      .story,
+      .donate-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .hero { padding-top: 52px; }
+      .donate-section { padding: 28px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="eyebrow">★ Eagle Scout Service Project</div>
+        <h1>Help Make This Project a Reality.</h1>
+        <p>
+          I'm Blake Gurnee, a Life Scout working toward the rank of Eagle Scout.
+          I'm raising funds to complete my service project for
+          <strong>[CHURCH NAME]</strong>.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="button button-gold" href="#donate">Donate to the Project</a>
+          <a class="button button-outline" href="#project">Learn About the Project</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="label">Fundraising Goal</div>
+        <div class="amount">$2,000</div> <!-- CHANGE THIS -->
+        <div class="progress">
+          <div class="progress-bar"></div>
+        </div>
+        <div class="progress-label">
+          <span>$1,240 raised</span> <!-- CHANGE THIS -->
+          <span>$2,000 goal</span> <!-- CHANGE THIS -->
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <section class="section" id="project">
+        <h2>About the Project</h2>
+        <p class="section-intro">
+          This Eagle Scout Service Project will provide a lasting improvement
+          for [CHURCH NAME] and the people who use the property.
+        </p>
+
+        <div class="story">
+          <div class="card">
+            <h3>What I'm Building</h3>
+            <p>
+              [WRITE A 1–3 PARAGRAPH DESCRIPTION OF YOUR PROJECT HERE.
+              Explain what you are building, where it will go, and what
+              purpose it will serve.]
+            </p>
+            <p>
+              The project will be planned, organized, and completed with the
+              help of fellow Scouts, volunteers, family, and community members.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="photo-placeholder">
+              <div>
+                <strong>Project Photo / Rendering</strong>
+                Replace this box with a photo, rendering, or diagram of your
+                Eagle project.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Where Your Donation Goes</h2>
+        <p class="section-intro">
+          Every donation helps purchase the materials needed to complete the project.
+        </p>
+
+        <div class="card budget">
+          <div class="budget-row">
+            <span>Red cedar lumber</span><strong>$____</strong>
+          </div>
+          <div class="budget-row">
+            <span>Posts & structural materials</span><strong>$____</strong>
+          </div>
+          <div class="budget-row">
+            <span>Black plaques</span><strong>$____</strong>
+          </div>
+          <div class="budget-row">
+            <span>Hardware & finishing materials</span><strong>$____</strong>
+          </div>
+          <div class="budget-row">
+            <span><strong>Total Project Cost</strong></span><strong>$____</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>How Your Support Helps</h2>
+
+        <div class="steps">
+          <div class="card">
+            <div class="step-number">1</div>
+            <h3>Donate</h3>
+            <p>Choose PayPal or Venmo and contribute whatever amount you're comfortable giving.</p>
+          </div>
+
+          <div class="card">
+            <div class="step-number">2</div>
+            <h3>Build</h3>
+            <p>Your donation helps purchase the materials needed for Scouts and volunteers to build the project.</p>
+          </div>
+
+          <div class="card">
+            <div class="step-number">3</div>
+            <h3>Give Back</h3>
+            <p>The completed project will remain at [CHURCH NAME] as a lasting contribution to the community.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="donate">
+        <div class="donate-section">
+          <h2>Support the Eagle Project</h2>
+          <p>
+            Thank you for helping make this project possible. Choose whichever
+            payment method is most convenient for you.
+          </p>
+
+          <div class="donate-grid">
+            <div class="donate-card">
+              <h3>PayPal</h3>
+              <p>Donate securely through PayPal.</p>
+              <div class="handle">PayPal: hmariej81</div>
+
+              <!-- PayPal.Me link is assumed from the supplied username.
+                   Verify the link before publishing. -->
+              <a
+                class="button"
+                href="https://paypal.me/hmariej81"
+                target="_blank"
+                rel="noopener noreferrer">
+                Donate with PayPal
+              </a>
+            </div>
+
+            <div class="donate-card">
+              <h3>Venmo</h3>
+              <p>Donate through the project's Venmo account.</p>
+              <div class="handle">Venmo: @heather-gurnee-1</div>
+
+              <a
+                class="button"
+                href="https://venmo.com/u/heather-gurnee-1"
+                target="_blank"
+                rel="noopener noreferrer">
+                Donate with Venmo
+              </a>
+            </div>
+          </div>
+
+          <p class="donate-note">
+            Please include “Eagle Project” in the payment note when possible.
+            Before publishing, verify that the recipient name shown by the
+            payment service is the intended recipient.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="card">
+          <h2>Thank You</h2>
+          <p>
+            Whether you donate, volunteer, share this page, or simply encourage
+            the project, your support makes a difference. Thank you for helping
+            me complete my Eagle Scout Service Project and create something
+            lasting for [CHURCH NAME].
+          </p>
+          <p><strong>— Blake Gurnee</strong><br>Life Scout</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <strong>Blake Gurnee's Eagle Scout Service Project</strong><br>
+    [CHURCH NAME] • [YEAR]
+  </footer>
+</body>
+</html>
