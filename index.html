@@ -111,17 +111,21 @@ main{padding:78px 0 90px}
 h2{color:var(--navy);font-size:clamp(2rem,4vw,3rem);line-height:1.08;letter-spacing:-.035em;margin:0 0 11px}
 .section-head p{color:var(--muted);font-size:1.02rem;margin:0}
 
-.story{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+.story{display:grid;grid-template-columns:.85fr 1.15fr;gap:24px}
 .card{background:#fff;border:1px solid var(--line);border-radius:21px;padding:31px;box-shadow:var(--shadow)}
 .card h3{color:var(--navy);margin:0 0 9px}
 .highlight{border-left:4px solid var(--gold);padding-left:17px;margin-top:22px}
 .highlight p{margin:0;color:var(--navy);font-weight:750}
 .photo{
-  min-height:360px;border-radius:16px;border:2px dashed #b9c9d5;
+  min-height:500px;border-radius:16px;border:2px dashed #b9c9d5;
   background:linear-gradient(145deg,#edf3f6,#e3ebef);
-  display:grid;place-items:center;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+  padding:10px;
 }
-.photo img{width:100%;height:100%;min-height:360px;object-fit:cover;display:block}
+.photo img{
+  width:100%;height:auto;max-height:700px;
+  object-fit:contain;display:block;
+}
 .photo-icon{font-size:2.8rem}
 .photo strong{display:block;color:var(--navy);font-size:1.1rem;margin:7px 0}
 
@@ -233,9 +237,9 @@ footer strong{color:#fff}
 
     <aside class="fund-card">
       <div class="fund-label">Current fundraising goal</div>
-      <div class="fund-number">$2,500</div>
+      <div class="fund-number">$2,000</div>
       <div class="progress"><div class="progress-bar"></div></div>
-      <div class="progress-text"><span>$525 raised</span><span>21% funded</span></div>
+      <div class="progress-text"><span>$1,240 raised</span><span>62% funded</span></div>
       <div class="stats">
         <div class="stat"><strong>10</strong><small>wooden signs</small></div>
         <div class="stat"><strong>5 + 5</strong><small>Old + New Testament</small></div>
@@ -324,17 +328,17 @@ footer strong{color:#fff}
 
   <div class="budget">
     <div class="budget-list">
-      <div class="row"><span>Wood and lumber</span><strong>TBD</strong></div>
-      <div class="row"><span>Bible plaques</span><strong>$2,000</strong></div>
-      <div class="row"><span>Landscaping materials</span><strong>TBD</strong></div>
-      <div class="row"><span>Hardware and supplies</span><strong>TBD</strong></div>
-      <div class="row"><span><strong>Total fundraising goal</strong></span><strong>$2,500</strong></div>
+      <div class="row"><span>Wood and lumber</span><strong>Project cost</strong></div>
+      <div class="row"><span>Ten black plaques</span><strong>$1,450</strong></div>
+      <div class="row"><span>Landscaping materials</span><strong>Project cost</strong></div>
+      <div class="row"><span>Hardware and supplies</span><strong>Project cost</strong></div>
+      <div class="row"><span><strong>Total fundraising goal</strong></span><strong>$2,000</strong></div>
     </div>
     <aside class="goal">
       <h3>Every bit helps.</h3>
       <p>You don't have to make a large donation to make a difference. Many small contributions can add up to the materials needed to complete the project.</p>
-      <div class="goal-number">$1,975</div>
-      <p>still needed to reach the current $2,500 goal.</p>
+      <div class="goal-number">$760</div>
+      <p>still needed to reach the current $2,000 goal.</p>
       <a class="btn btn-gold" href="#donate">Make a Donation</a>
     </aside>
   </div>
@@ -368,14 +372,14 @@ footer strong{color:#fff}
     <div class="donate-grid">
       <div class="donate-card">
         <h3>Donate with PayPal</h3>
-        <p>Use the project's PayPal account to contribute.</p>
+        <p>Use the project's PayPal account to make a contribution.</p>
         <div class="handle">PayPal: hmariej81</div>
         <a class="btn" href="https://paypal.me/hmariej81" target="_blank" rel="noopener noreferrer">Donate with PayPal →</a>
       </div>
 
       <div class="donate-card">
         <h3>Donate with Venmo</h3>
-        <p>Use the project's Venmo account to contribute.</p>
+        <p>Use the project's Venmo account to make a contribution.</p>
         <div class="handle">Venmo: @heather-gurnee-1</div>
         <a class="btn" href="https://venmo.com/u/heather-gurnee-1" target="_blank" rel="noopener noreferrer">Donate with Venmo →</a>
       </div>
