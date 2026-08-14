@@ -1,511 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Support Blake Gurnee's Eagle Scout Service Project." />
-  <title>Support Blake's Eagle Scout Project</title>
-  <style>
-    :root {
-      --navy: #102a43;
-      --blue: #1f5f8b;
-      --gold: #c89b3c;
-      --cream: #f7f4ed;
-      --white: #ffffff;
-      --text: #243b53;
-      --muted: #627d98;
-      --border: #d9e2ec;
-      --shadow: 0 18px 45px rgba(16, 42, 67, 0.12);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Support Blake Gurnee's Eagle Scout Service Project, an outdoor Bible Display for Fellowship Church.">
+<meta name="theme-color" content="#0d2438">
+<title>Blake Gurnee | Eagle Scout Project</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+<style>
+:root{
+  --navy:#0d2438;
+  --navy2:#163f5d;
+  --gold:#c99b3d;
+  --gold2:#f3d487;
+  --cream:#f7f5ef;
+  --white:#fff;
+  --ink:#21384b;
+  --muted:#687f91;
+  --line:#dce4ea;
+  --soft:#edf3f6;
+  --shadow:0 18px 50px rgba(13,36,56,.11);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.65;
+}
+a{color:inherit}
+.container{width:min(1120px,calc(100% - 40px));margin:auto}
+section{scroll-margin-top:88px}
 
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-                   "Segoe UI", sans-serif;
-      color: var(--text);
-      background: var(--cream);
-      line-height: 1.6;
-    }
+/* NAV */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(13,36,56,.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.nav-inner{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:900}
+.brand-mark{
+  width:34px;height:34px;border-radius:9px;background:var(--gold);
+  color:var(--navy);display:grid;place-items:center;font-weight:1000;
+}
+.nav-links{display:flex;align-items:center;gap:24px}
+.nav-links a{color:#dce8ef;text-decoration:none;font-size:.88rem;font-weight:800}
+.nav-links a:hover{color:var(--gold2)}
+.nav-donate{background:var(--gold);color:var(--navy)!important;padding:8px 14px;border-radius:9px}
 
-    a { color: inherit; }
+/* HERO */
+.hero{
+  position:relative;overflow:hidden;color:#fff;
+  background:
+    radial-gradient(circle at 85% 8%,rgba(201,155,61,.25),transparent 25%),
+    radial-gradient(circle at 0 100%,rgba(35,95,134,.35),transparent 32%),
+    linear-gradient(135deg,#0a2032,#174766);
+  padding:82px 20px 94px;
+}
+.hero:after{
+  content:"";position:absolute;width:500px;height:500px;border:1px solid rgba(255,255,255,.07);
+  border-radius:50%;right:-190px;top:-275px;
+}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center}
+.eyebrow{
+  display:flex;align-items:center;gap:10px;color:var(--gold2);
+  text-transform:uppercase;letter-spacing:.15em;font-size:.75rem;font-weight:950;margin-bottom:17px;
+}
+.eyebrow:before{content:"";width:30px;height:2px;background:var(--gold)}
+h1{font-size:clamp(3rem,7vw,5.7rem);line-height:.97;letter-spacing:-.055em;margin:0}
+.hero-copy{max-width:700px;color:#dce8ef;font-size:1.13rem;margin:25px 0 31px}
+.hero-copy strong{color:#fff}
+.buttons{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  min-height:51px;padding:0 20px;border-radius:12px;text-decoration:none;
+  display:inline-flex;align-items:center;justify-content:center;font-weight:900;
+  transition:.2s ease;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.18)}
+.btn-gold{background:var(--gold);color:var(--navy)}
+.btn-outline{color:#fff;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08)}
 
-    .hero {
-      background:
-        linear-gradient(135deg, rgba(16,42,67,.96), rgba(31,95,139,.92)),
-        radial-gradient(circle at top right, rgba(200,155,60,.28), transparent 35%);
-      color: white;
-      padding: 72px 20px 88px;
-    }
+.fund-card{
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+  backdrop-filter:blur(14px);border-radius:25px;padding:30px;
+  box-shadow:0 25px 60px rgba(0,0,0,.14);
+}
+.fund-label{text-transform:uppercase;letter-spacing:.11em;font-size:.74rem;font-weight:900;color:#cbdce7}
+.fund-number{font-size:3.4rem;line-height:1;font-weight:1000;margin:9px 0 18px}
+.progress{height:14px;border-radius:99px;overflow:hidden;background:rgba(255,255,255,.18)}
+.progress-bar{width:62%;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.progress-text{display:flex;justify-content:space-between;color:#d7e4ec;font-size:.86rem;margin-top:9px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.stat{padding:13px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+.stat strong{display:block;color:#fff;font-size:1.25rem}
+.stat small{color:#cbdce7}
 
-    .container {
-      width: min(1080px, calc(100% - 40px));
-      margin: 0 auto;
-    }
+/* CONTENT */
+main{padding:78px 0 90px}
+.section{margin-bottom:80px}
+.section-head{max-width:800px;margin-bottom:28px}
+.kicker{color:var(--gold);font-size:.72rem;font-weight:950;letter-spacing:.13em;text-transform:uppercase;margin-bottom:7px}
+h2{color:var(--navy);font-size:clamp(2rem,4vw,3rem);line-height:1.08;letter-spacing:-.035em;margin:0 0 11px}
+.section-head p{color:var(--muted);font-size:1.02rem;margin:0}
 
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 50px;
-      align-items: center;
-    }
+.story{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+.card{background:#fff;border:1px solid var(--line);border-radius:21px;padding:31px;box-shadow:var(--shadow)}
+.card h3{color:var(--navy);margin:0 0 9px}
+.highlight{border-left:4px solid var(--gold);padding-left:17px;margin-top:22px}
+.highlight p{margin:0;color:var(--navy);font-weight:750}
+.photo{
+  min-height:360px;border-radius:16px;border:2px dashed #b9c9d5;
+  background:linear-gradient(145deg,#edf3f6,#e3ebef);
+  display:grid;place-items:center;overflow:hidden;
+}
+.photo img{width:100%;height:100%;min-height:360px;object-fit:cover;display:block}
+.photo-icon{font-size:2.8rem}
+.photo strong{display:block;color:var(--navy);font-size:1.1rem;margin:7px 0}
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: .82rem;
-      font-weight: 800;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-      color: #f4d58a;
-      margin-bottom: 14px;
-    }
+/* SIGNS */
+.signs{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.sign{
+  min-height:155px;background:#fff;border:1px solid var(--line);border-radius:16px;
+  padding:17px 15px;box-shadow:0 9px 25px rgba(13,36,56,.07);transition:.2s ease;
+}
+.sign:hover{transform:translateY(-3px);box-shadow:0 15px 30px rgba(13,36,56,.11)}
+.num{
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+  background:var(--navy);color:var(--gold2);font-weight:950;margin-bottom:12px;
+}
+.type{font-size:.63rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);font-weight:950}
+.sign h3{font-size:1rem;color:var(--navy);margin:3px 0 0}
 
-    h1 {
-      margin: 0 0 18px;
-      font-size: clamp(2.4rem, 6vw, 4.5rem);
-      line-height: 1.02;
-      letter-spacing: -.04em;
-    }
+/* IMPACT */
+.impact{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.impact-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:25px;box-shadow:0 10px 30px rgba(13,36,56,.07)}
+.icon{width:45px;height:45px;border-radius:13px;background:var(--soft);display:grid;place-items:center;font-size:1.35rem;margin-bottom:14px}
+.impact-card h3{color:var(--navy);margin:0 0 7px}
+.impact-card p{color:var(--muted);font-size:.94rem;margin:0}
 
-    .hero p {
-      max-width: 680px;
-      font-size: 1.12rem;
-      color: #e6eef5;
-      margin: 0 0 28px;
-    }
+/* BUDGET */
+.budget{display:grid;grid-template-columns:1fr .8fr;gap:24px}
+.budget-list{background:#fff;border:1px solid var(--line);border-radius:20px;padding:10px 28px;box-shadow:var(--shadow)}
+.row{display:flex;justify-content:space-between;gap:20px;padding:17px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border:0}.row strong{color:var(--navy)}
+.goal{background:var(--navy);color:#fff;border-radius:20px;padding:30px;box-shadow:var(--shadow)}
+.goal h3{margin:0 0 7px}.goal p{color:#cbdce7}.goal-number{font-size:3rem;font-weight:1000;line-height:1;margin:18px 0}
 
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
+/* TIMELINE */
+.timeline{display:grid;gap:12px}
+.timeline-item{
+  display:grid;grid-template-columns:145px 1fr;gap:20px;align-items:center;
+  background:#fff;border:1px solid var(--line);border-radius:16px;padding:19px 22px;
+}
+.timeline-item strong{color:var(--navy)}.timeline-item span{color:var(--muted);font-size:.93rem}
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: 0 20px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 800;
-      border: 1px solid transparent;
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
+/* DONATE */
+.donate{
+  background:radial-gradient(circle at 90% 5%,rgba(201,155,61,.2),transparent 28%),var(--navy);
+  color:#fff;border-radius:29px;padding:50px;box-shadow:0 25px 65px rgba(13,36,56,.2)
+}
+.donate h2{color:#fff}.donate-intro{max-width:740px;color:#d8e6ee}
+.donate-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:29px}
+.donate-card{background:#fff;color:var(--ink);border-radius:18px;padding:28px}
+.donate-card h3{color:var(--navy);font-size:1.4rem;margin:0 0 6px}
+.handle{
+  display:inline-block;background:#edf2f5;color:var(--navy);border-radius:9px;
+  padding:8px 11px;margin:8px 0 16px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9rem
+}
+.donate-card .btn{width:100%;background:var(--navy);color:#fff}
+.note{color:#c5d5df;font-size:.84rem;margin:19px 0 0}
 
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(0,0,0,.16);
-    }
+/* END */
+.thank{text-align:center;max-width:800px;margin:0 auto}
+.thank p{color:var(--muted)}
+.signature{font-weight:900;color:var(--navy)!important}
+footer{background:#071925;color:#9fb2c0;text-align:center;padding:34px 20px;font-size:.88rem}
+footer strong{color:#fff}
 
-    .button-gold {
-      background: var(--gold);
-      color: #172b3a;
-    }
-
-    .button-outline {
-      color: white;
-      border-color: rgba(255,255,255,.45);
-      background: rgba(255,255,255,.08);
-    }
-
-    .hero-card {
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.20);
-      backdrop-filter: blur(12px);
-      border-radius: 22px;
-      padding: 28px;
-    }
-
-    .hero-card .label {
-      color: #cfe0ed;
-      font-size: .85rem;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      font-weight: 800;
-    }
-
-    .amount {
-      font-size: 3rem;
-      line-height: 1;
-      font-weight: 900;
-      margin: 10px 0 18px;
-    }
-
-    .progress {
-      height: 12px;
-      background: rgba(255,255,255,.18);
-      border-radius: 99px;
-      overflow: hidden;
-    }
-
-    .progress-bar {
-      width: 62%; /* CHANGE THIS */
-      height: 100%;
-      background: var(--gold);
-      border-radius: inherit;
-    }
-
-    .progress-label {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 9px;
-      font-size: .88rem;
-      color: #d8e5ee;
-    }
-
-    main { padding: 58px 0 80px; }
-
-    .section {
-      margin-bottom: 58px;
-    }
-
-    .section h2 {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      margin: 0 0 12px;
-      color: var(--navy);
-      letter-spacing: -.025em;
-    }
-
-    .section-intro {
-      color: var(--muted);
-      max-width: 760px;
-      margin: 0 0 26px;
-    }
-
-    .story {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    .card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .photo-placeholder {
-      min-height: 290px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 25px;
-      color: var(--muted);
-      background: #e9eef3;
-      border: 2px dashed #b8c7d5;
-    }
-
-    .photo-placeholder strong {
-      display: block;
-      color: var(--navy);
-      margin-bottom: 5px;
-    }
-
-    .budget {
-      display: grid;
-      gap: 12px;
-    }
-
-    .budget-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 15px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .budget-row:last-child { border-bottom: 0; }
-    .budget-row strong { color: var(--navy); }
-
-    .donate-section {
-      background: var(--navy);
-      color: white;
-      border-radius: 26px;
-      padding: 42px;
-      box-shadow: var(--shadow);
-    }
-
-    .donate-section h2 { color: white; }
-
-    .donate-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-top: 26px;
-    }
-
-    .donate-card {
-      background: white;
-      color: var(--text);
-      border-radius: 18px;
-      padding: 25px;
-    }
-
-    .donate-card h3 {
-      margin: 0 0 7px;
-      color: var(--navy);
-      font-size: 1.35rem;
-    }
-
-    .handle {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      background: #eef2f6;
-      padding: 9px 11px;
-      border-radius: 9px;
-      display: inline-block;
-      margin: 8px 0 16px;
-      font-size: .95rem;
-    }
-
-    .donate-card .button {
-      width: 100%;
-      background: var(--navy);
-      color: white;
-    }
-
-    .donate-note {
-      margin: 18px 0 0;
-      font-size: .9rem;
-      color: #c9d7e2;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .step-number {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: #e9f1f7;
-      color: var(--navy);
-      font-weight: 900;
-      margin-bottom: 14px;
-    }
-
-    footer {
-      background: #0b1f31;
-      color: #a9bac8;
-      padding: 28px 20px;
-      text-align: center;
-      font-size: .9rem;
-    }
-
-    footer strong { color: white; }
-
-    @media (max-width: 800px) {
-      .hero-inner,
-      .story,
-      .donate-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .steps {
-        grid-template-columns: 1fr;
-      }
-
-      .hero { padding-top: 52px; }
-      .donate-section { padding: 28px 20px; }
-    }
-  </style>
+@media(max-width:900px){
+  .hero-grid,.story,.budget{grid-template-columns:1fr}
+  .signs{grid-template-columns:repeat(2,1fr)}
+  .impact{grid-template-columns:1fr}
+  .nav-links a:not(.nav-donate){display:none}
+}
+@media(max-width:600px){
+  .container{width:min(100% - 28px,1120px)}
+  .hero{padding:58px 14px 70px}
+  .hero h1{font-size:3rem}
+  .signs,.donate-grid{grid-template-columns:1fr}
+  .card,.donate{padding:25px 20px}
+  .timeline-item{grid-template-columns:1fr;gap:4px}
+}
+</style>
 </head>
 
 <body>
-  <header class="hero">
-    <div class="container hero-inner">
-      <div>
-        <div class="eyebrow">★ Eagle Scout Service Project</div>
-        <h1>Help Make This Project a Reality.</h1>
-        <p>
-          I'm Blake Gurnee, a Life Scout working toward the rank of Eagle Scout.
-          I'm raising funds to complete my service project for
-          <strong>[CHURCH NAME]</strong>.
-        </p>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#"><span class="brand-mark">★</span> Blake's Eagle Project</a>
+    <div class="nav-links">
+      <a href="#project">Project</a>
+      <a href="#impact">Why It Matters</a>
+      <a href="#progress">Progress</a>
+      <a class="nav-donate" href="#donate">Donate</a>
+    </div>
+  </div>
+</nav>
 
-        <div class="hero-buttons">
-          <a class="button button-gold" href="#donate">Donate to the Project</a>
-          <a class="button button-outline" href="#project">Learn About the Project</a>
-        </div>
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Eagle Scout Service Project</div>
+      <h1>Help Me Build Something That Lasts.</h1>
+      <p class="hero-copy">
+        I'm <strong>Blake Gurnee</strong>, a Life Scout working toward the rank of Eagle Scout.
+        My service project will create an outdoor <strong>Bible Display for Fellowship Church</strong>
+        that can teach and welcome people for years to come.
+      </p>
+      <div class="buttons">
+        <a class="btn btn-gold" href="#donate">Help Fund the Project</a>
+        <a class="btn btn-outline" href="#project">See What I'm Building</a>
+      </div>
+    </div>
+
+    <aside class="fund-card">
+      <div class="fund-label">Current fundraising goal</div>
+      <div class="fund-number">$2,500</div>
+      <div class="progress"><div class="progress-bar"></div></div>
+      <div class="progress-text"><span>$525 raised</span><span>21% funded</span></div>
+      <div class="stats">
+        <div class="stat"><strong>10</strong><small>wooden signs</small></div>
+        <div class="stat"><strong>5 + 5</strong><small>Old + New Testament</small></div>
+      </div>
+    </aside>
+  </div>
+</header>
+
+<main>
+<div class="container">
+
+<section class="section" id="project">
+  <div class="section-head">
+    <div class="kicker">The Project</div>
+    <h2>A Bible story people can walk through.</h2>
+    <p>This project is about creating a permanent, useful resource for Fellowship Church, not just completing a requirement.</p>
+  </div>
+
+  <div class="story">
+    <article class="card">
+      <h3>What I'm Building</h3>
+      <p>
+        For my Eagle Scout Service Project, I will create an outdoor Bible Display made up of
+        <strong>10 wooden signs</strong>. Each sign will explain a major event or story from the Bible
+        in a way that is easy for visitors to understand.
+      </p>
+      <p>
+        The five signs on one side will focus on the <strong>Old Testament</strong>, while the five
+        signs on the other side will focus on the <strong>New Testament</strong>. Together, they will
+        create a simple path through important parts of the Bible.
+      </p>
+      <div class="highlight">
+        <p>My goal is for children, teens, adults, and families to be able to stop, read, learn something new, and feel welcomed.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="photo">
+        <img src="project-image.jpg" alt="Eagle Scout outdoor Bible Display project rendering">
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="kicker">10 Signs</div>
+    <h2>From the Old Testament to the New.</h2>
+    <p>The display will use ten signs to make the Bible easier to explore at a glance.</p>
+  </div>
+
+  <div class="signs">
+    <div class="sign"><div class="num">1</div><div class="type">Old Testament</div><h3>Creation</h3></div>
+    <div class="sign"><div class="num">2</div><div class="type">Old Testament</div><h3>The Fall</h3></div>
+    <div class="sign"><div class="num">3</div><div class="type">Old Testament</div><h3>The Flood</h3></div>
+    <div class="sign"><div class="num">4</div><div class="type">Old Testament</div><h3>Abraham's Promise</h3></div>
+    <div class="sign"><div class="num">5</div><div class="type">Old Testament</div><h3>The Exodus</h3></div>
+    <div class="sign"><div class="num">6</div><div class="type">New Testament</div><h3>The Birth of Jesus</h3></div>
+    <div class="sign"><div class="num">7</div><div class="type">New Testament</div><h3>The Miracles of Jesus</h3></div>
+    <div class="sign"><div class="num">8</div><div class="type">New Testament</div><h3>The Crucifixion</h3></div>
+    <div class="sign"><div class="num">9</div><div class="type">New Testament</div><h3>The Resurrection</h3></div>
+    <div class="sign"><div class="num">10</div><div class="type">New Testament</div><h3>Pentecost</h3></div>
+  </div>
+</section>
+
+<section class="section" id="impact">
+  <div class="section-head">
+    <div class="kicker">Why I Chose It</div>
+    <h2>This is bigger than an Eagle Scout requirement.</h2>
+    <p>I want this project to be something the church can continue using after my Eagle Scout journey is complete.</p>
+  </div>
+
+  <div class="impact">
+    <article class="impact-card"><div class="icon">📖</div><h3>Help People Learn</h3><p>The display will provide an easy, visual way for visitors to learn about important stories from the Bible.</p></article>
+    <article class="impact-card"><div class="icon">🤝</div><h3>Serve My Church</h3><p>This is my opportunity to give back to Fellowship Church with something practical and lasting.</p></article>
+    <article class="impact-card"><div class="icon">🌱</div><h3>Leave Something Behind</h3><p>When the project is finished, the display will remain as a resource for the church and its community.</p></article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="kicker">Your Donation</div>
+    <h2>Where the money goes.</h2>
+    <p>Donations will help cover the materials needed to build the display and prepare the area where it will be installed.</p>
+  </div>
+
+  <div class="budget">
+    <div class="budget-list">
+      <div class="row"><span>Wood and lumber</span><strong>TBD</strong></div>
+      <div class="row"><span>Bible plaques</span><strong>$2,000</strong></div>
+      <div class="row"><span>Landscaping materials</span><strong>TBD</strong></div>
+      <div class="row"><span>Hardware and supplies</span><strong>TBD</strong></div>
+      <div class="row"><span><strong>Total fundraising goal</strong></span><strong>$2,500</strong></div>
+    </div>
+    <aside class="goal">
+      <h3>Every bit helps.</h3>
+      <p>You don't have to make a large donation to make a difference. Many small contributions can add up to the materials needed to complete the project.</p>
+      <div class="goal-number">$1,975</div>
+      <p>still needed to reach the current $2,500 goal.</p>
+      <a class="btn btn-gold" href="#donate">Make a Donation</a>
+    </aside>
+  </div>
+</section>
+
+<section class="section" id="progress">
+  <div class="section-head">
+    <div class="kicker">Project Progress</div>
+    <h2>From an idea to a finished display.</h2>
+    <p>I'll update this page as the project moves forward.</p>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item"><strong>✓ Planning</strong><span>Designing the display, getting approvals, organizing materials, and fundraising.</span></div>
+    <div class="timeline-item"><strong>2. Materials</strong><span>Purchase the wood, plaques, landscaping materials, hardware, and other supplies.</span></div>
+    <div class="timeline-item"><strong>3. Construction</strong><span>Build the signs and prepare the display with Scouts, volunteers, family, and community members.</span></div>
+    <div class="timeline-item"><strong>4. Installation</strong><span>Install the completed Bible Display at Fellowship Church.</span></div>
+    <div class="timeline-item"><strong>5. Complete</strong><span>Finish the project and leave a lasting resource for Fellowship Church and its visitors.</span></div>
+  </div>
+</section>
+
+<section class="section" id="donate">
+  <div class="donate">
+    <div class="kicker" style="color:var(--gold2)">Help Make It Happen</div>
+    <h2>Want to help me reach Eagle?</h2>
+    <p class="donate-intro">
+      Your donation will help turn the plans on this page into something people can actually see,
+      walk through, and use at Fellowship Church. Thank you for helping me make this project possible.
+    </p>
+
+    <div class="donate-grid">
+      <div class="donate-card">
+        <h3>Donate with PayPal</h3>
+        <p>Use the project's PayPal account to contribute.</p>
+        <div class="handle">PayPal: hmariej81</div>
+        <a class="btn" href="https://paypal.me/hmariej81" target="_blank" rel="noopener noreferrer">Donate with PayPal →</a>
       </div>
 
-      <aside class="hero-card">
-        <div class="label">Fundraising Goal</div>
-        <div class="amount">$2,000</div> <!-- CHANGE THIS -->
-        <div class="progress">
-          <div class="progress-bar"></div>
-        </div>
-        <div class="progress-label">
-          <span>$1,240 raised</span> <!-- CHANGE THIS -->
-          <span>$2,000 goal</span> <!-- CHANGE THIS -->
-        </div>
-      </aside>
+      <div class="donate-card">
+        <h3>Donate with Venmo</h3>
+        <p>Use the project's Venmo account to contribute.</p>
+        <div class="handle">Venmo: @heather-gurnee-1</div>
+        <a class="btn" href="https://venmo.com/u/heather-gurnee-1" target="_blank" rel="noopener noreferrer">Donate with Venmo →</a>
+      </div>
     </div>
-  </header>
 
-  <main>
-    <div class="container">
+    <p class="note">
+      Donations are being received through my mom's PayPal and Venmo accounts on behalf of my Eagle Scout Service Project.
+      Please include “Eagle Project” in the payment note when possible. Before publishing widely, verify the recipient shown
+      by the payment service is the intended recipient.
+    </p>
+  </div>
+</section>
 
-      <section class="section" id="project">
-        <h2>About the Project</h2>
-        <p class="section-intro">
-          This Eagle Scout Service Project will provide a lasting improvement
-          for [CHURCH NAME] and the people who use the property.
-        </p>
+<section class="section thank">
+  <div class="kicker">Thank You</div>
+  <h2>Thank you for supporting my Eagle journey.</h2>
+  <p>
+    Whether you donate, share this page, volunteer your time, or simply encourage me,
+    I really appreciate your support. I'm excited to see this project go from an idea
+    to something that can serve Fellowship Church for years to come.
+  </p>
+  <p class="signature">— Blake Gurnee<br><span style="font-weight:600;color:var(--muted)">Life Scout</span></p>
+</section>
 
-        <div class="story">
-          <div class="card">
-            <h3>What I'm Building</h3>
-            <p>
-              [WRITE A 1–3 PARAGRAPH DESCRIPTION OF YOUR PROJECT HERE.
-              Explain what you are building, where it will go, and what
-              purpose it will serve.]
-            </p>
-            <p>
-              The project will be planned, organized, and completed with the
-              help of fellow Scouts, volunteers, family, and community members.
-            </p>
-          </div>
+</div>
+</main>
 
-          <div class="card">
-            <div class="photo-placeholder">
-              <div>
-                <strong>Project Photo / Rendering</strong>
-                Replace this box with a photo, rendering, or diagram of your
-                Eagle project.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>Where Your Donation Goes</h2>
-        <p class="section-intro">
-          Every donation helps purchase the materials needed to complete the project.
-        </p>
-
-        <div class="card budget">
-          <div class="budget-row">
-            <span>Red cedar lumber</span><strong>$____</strong>
-          </div>
-          <div class="budget-row">
-            <span>Posts & structural materials</span><strong>$____</strong>
-          </div>
-          <div class="budget-row">
-            <span>Black plaques</span><strong>$____</strong>
-          </div>
-          <div class="budget-row">
-            <span>Hardware & finishing materials</span><strong>$____</strong>
-          </div>
-          <div class="budget-row">
-            <span><strong>Total Project Cost</strong></span><strong>$____</strong>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>How Your Support Helps</h2>
-
-        <div class="steps">
-          <div class="card">
-            <div class="step-number">1</div>
-            <h3>Donate</h3>
-            <p>Choose PayPal or Venmo and contribute whatever amount you're comfortable giving.</p>
-          </div>
-
-          <div class="card">
-            <div class="step-number">2</div>
-            <h3>Build</h3>
-            <p>Your donation helps purchase the materials needed for Scouts and volunteers to build the project.</p>
-          </div>
-
-          <div class="card">
-            <div class="step-number">3</div>
-            <h3>Give Back</h3>
-            <p>The completed project will remain at [CHURCH NAME] as a lasting contribution to the community.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="donate">
-        <div class="donate-section">
-          <h2>Support the Eagle Project</h2>
-          <p>
-            Thank you for helping make this project possible. Choose whichever
-            payment method is most convenient for you.
-          </p>
-
-          <div class="donate-grid">
-            <div class="donate-card">
-              <h3>PayPal</h3>
-              <p>Donate securely through PayPal.</p>
-              <div class="handle">PayPal: hmariej81</div>
-
-              <!-- PayPal.Me link is assumed from the supplied username.
-                   Verify the link before publishing. -->
-              <a
-                class="button"
-                href="https://paypal.me/hmariej81"
-                target="_blank"
-                rel="noopener noreferrer">
-                Donate with PayPal
-              </a>
-            </div>
-
-            <div class="donate-card">
-              <h3>Venmo</h3>
-              <p>Donate through the project's Venmo account.</p>
-              <div class="handle">Venmo: @heather-gurnee-1</div>
-
-              <a
-                class="button"
-                href="https://venmo.com/u/heather-gurnee-1"
-                target="_blank"
-                rel="noopener noreferrer">
-                Donate with Venmo
-              </a>
-            </div>
-          </div>
-
-          <p class="donate-note">
-            Please include “Eagle Project” in the payment note when possible.
-            Before publishing, verify that the recipient name shown by the
-            payment service is the intended recipient.
-          </p>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="card">
-          <h2>Thank You</h2>
-          <p>
-            Whether you donate, volunteer, share this page, or simply encourage
-            the project, your support makes a difference. Thank you for helping
-            me complete my Eagle Scout Service Project and create something
-            lasting for [CHURCH NAME].
-          </p>
-          <p><strong>— Blake Gurnee</strong><br>Life Scout</p>
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <footer>
-    <strong>Blake Gurnee's Eagle Scout Service Project</strong><br>
-    [CHURCH NAME] • [YEAR]
-  </footer>
+<footer>
+  <strong>Blake Gurnee's Eagle Scout Service Project</strong><br>
+  Outdoor Bible Display • Fellowship Church
+</footer>
 </body>
 </html>
