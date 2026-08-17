@@ -191,6 +191,13 @@ h2{color:var(--navy);font-size:clamp(2rem,4vw,3rem);line-height:1.08;letter-spac
   padding:8px 11px;margin:8px 0 16px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9rem
 }
 .donate-card .btn{width:100%;background:var(--navy);color:#fff}
+.mail-address{
+  display:flex;flex-direction:column;gap:2px;
+  background:var(--soft);border:1px solid var(--line);
+  border-radius:12px;padding:13px 14px;margin:5px 0 17px;
+  color:var(--navy);font-size:.9rem;
+}
+.mail-address strong{margin-bottom:3px}
 .note{color:#c5d5df;font-size:.84rem;margin:19px 0 0}
 
 /* END */
@@ -524,7 +531,13 @@ footer strong{color:#fff}
       <div class="donate-card cash-card">
         <div class="cash-icon">💵</div>
         <h3>Cash or Check</h3>
-        <p>Planning to donate cash or a check? Let me know the amount so I can keep track of the project fundraising.</p>
+        <p>Planning to donate cash or a check? You can mail your donation directly to me. If possible, please include “Eagle Project” with your payment.</p>
+        <div class="mail-address">
+          <strong>Mail donations to:</strong>
+          <span>Blake Gurnee</span>
+          <span>4715 Stonewood Ct</span>
+          <span>Hudsonville, MI, 49426</span>
+        </div>
         <button class="btn" type="button" id="openDonationForm">Record a Cash / Check Donation →</button>
       </div>
     </div>
