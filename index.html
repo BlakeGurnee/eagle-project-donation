@@ -129,6 +129,17 @@ h2{color:var(--navy);font-size:clamp(2rem,4vw,3rem);line-height:1.08;letter-spac
 .photo-icon{font-size:2.8rem}
 .photo strong{display:block;color:var(--navy);font-size:1.1rem;margin:7px 0}
 
+/* ABOUT BLAKE */
+.about-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:24px;align-items:stretch}
+.about-photo{background:#fff;border:1px solid var(--line);border-radius:21px;padding:12px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;min-height:420px;overflow:hidden}
+.about-photo img{width:100%;height:100%;max-height:560px;object-fit:cover;border-radius:14px;display:block}
+.about-photo .photo-placeholder{width:100%;min-height:390px;border-radius:14px;background:linear-gradient(145deg,#edf3f6,#e3ebef);display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);padding:30px}
+.about-copy{background:#fff;border:1px solid var(--line);border-radius:21px;padding:31px;box-shadow:var(--shadow)}
+.about-copy h3{color:var(--navy);font-size:1.7rem;margin:0 0 12px}
+.about-copy p{color:var(--muted);margin:0 0 16px}
+.about-badge{display:inline-flex;align-items:center;gap:8px;background:var(--soft);color:var(--navy);border-radius:999px;padding:7px 12px;font-size:.78rem;font-weight:900;margin-top:5px}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr}.about-photo{min-height:360px}.about-photo img{max-height:500px}}
+
 /* SIGNS */
 .signs{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
 .sign{
@@ -307,6 +318,7 @@ footer strong{color:#fff}
     <a class="brand" href="#"><span class="brand-mark">★</span> Blake's Eagle Project</a>
     <div class="nav-links">
       <a href="#project">Project</a>
+      <a href="#about">About Me</a>
       <a href="#impact">Why It Matters</a>
       <a href="#progress">Progress</a>
       <a class="nav-donate" href="#donate">Donate</a>
@@ -375,6 +387,36 @@ footer strong{color:#fff}
       <div class="photo">
         <img src="project-image.jpg" alt="Eagle Scout outdoor Bible Display project rendering">
       </div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="section-head">
+    <div class="kicker">Meet the Scout</div>
+    <h2>The person behind the project.</h2>
+    <p>This project is personal to me. I want to use my Eagle Scout journey as an opportunity to serve the church and create something that lasts.</p>
+  </div>
+
+  <div class="about-grid">
+    <article class="about-photo">
+      <!-- Replace blake-gurnee.jpg with your portrait photo. -->
+      <img src="blake-gurnee.jpg" alt="Blake Gurnee, Life Scout working toward Eagle Scout" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="photo-placeholder" style="display:none;">
+        <div>
+          <div class="photo-icon">📸</div>
+          <strong>Add Blake's photo here</strong>
+          <div>Place <b>blake-gurnee.jpg</b> in the same folder as this website.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="about-copy">
+      <h3>About Me</h3>
+      <p>I'm Blake Gurnee, a Life Scout working toward the rank of Eagle Scout. For my Eagle Scout Service Project, I'm creating an outdoor Bible Display for Fellowship Church.</p>
+      <p>I chose this project because I wanted to do more than simply complete an Eagle requirement. I want to give back to my church by creating something useful that children, teens, adults, and families can continue using for years to come.</p>
+      <p>With the help of volunteers, donors, and the Fellowship Church community, I hope to turn this idea into a permanent resource that welcomes people and helps them explore the Bible.</p>
+      <div class="about-badge">★ Life Scout • Working Toward Eagle</div>
     </article>
   </div>
 </section>
