@@ -316,6 +316,18 @@ footer strong{color:#fff}
   .donate-card.cash-card{grid-column:1 / -1;max-width:calc(50% - 9px);width:100%;justify-self:center}
 }
 
+
+/* PROJECT VIDEO */
+.video-wrap{background:#fff;border:1px solid var(--line);border-radius:22px;padding:14px;box-shadow:var(--shadow);overflow:hidden}
+.project-video{width:100%;display:block;border-radius:14px;background:#071925;max-height:650px}
+.video-placeholder{min-height:480px;border-radius:14px;background:radial-gradient(circle at 50% 35%,rgba(201,155,61,.18),transparent 28%),linear-gradient(135deg,#0a2032,#174766);display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:35px}
+.video-placeholder-inner{max-width:560px}
+.play-circle{width:78px;height:78px;border-radius:50%;background:var(--gold);color:var(--navy);display:grid;place-items:center;margin:0 auto 22px;font-size:2rem;font-weight:900;box-shadow:0 12px 35px rgba(0,0,0,.25)}
+.video-placeholder h3{font-size:1.7rem;margin:0 0 8px}
+.video-placeholder p{color:#d8e6ee;margin:0}
+.video-caption{color:var(--muted);font-size:.9rem;text-align:center;margin:14px 8px 3px}
+@media(max-width:600px){.video-placeholder{min-height:300px;padding:25px}.play-circle{width:64px;height:64px;font-size:1.6rem}}
+
 </style>
 </head>
 
@@ -326,6 +338,7 @@ footer strong{color:#fff}
     <div class="nav-links">
       <a href="#project">Project</a>
       <a href="#about">About Me</a>
+      <a href="#video">Video</a>
       <a href="#impact">Why It Matters</a>
       <a href="#progress">Progress</a>
       <a class="nav-donate" href="#donate">Donate</a>
@@ -395,6 +408,28 @@ footer strong{color:#fff}
         <img src="project-image.jpg" alt="Eagle Scout outdoor Bible Display project rendering">
       </div>
     </article>
+  </div>
+</section>
+
+<section class="section" id="video">
+  <div class="section-head">
+    <div class="kicker">Project Video</div>
+    <h2>See the project come to life.</h2>
+    <p>Watch a short video about the Eagle Scout project, why I chose it, and what I hope it will mean to Fellowship Church.</p>
+  </div>
+  <div class="video-wrap">
+    <div class="video-placeholder" id="videoPlaceholder">
+      <div class="video-placeholder-inner">
+        <div class="play-circle">▶</div>
+        <h3>Project Video Coming Soon</h3>
+        <p>When the video is finished, place <strong>project-video.mp4</strong> in the same folder as this index.html and it will appear here automatically.</p>
+      </div>
+    </div>
+    <video class="project-video" id="projectVideo" controls playsinline preload="metadata" style="display:none;">
+      <source src="project-video.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+    <p class="video-caption">Blake Gurnee's Eagle Scout Service Project • Outdoor Bible Display at Fellowship Church</p>
   </div>
 </section>
 
@@ -476,7 +511,7 @@ footer strong{color:#fff}
       <div class="row"><span>Ten Bible plaques</span><strong>$1,500</strong></div>
       <div class="row"><span>Landscaping materials</span><strong>TBD</strong></div>
       <div class="row"><span>Hardware and supplies</span><strong>$200</strong></div>
-      <div class="row"><span><strong>Total fundraising goal</strong></span><strong>$2,000</strong></div>
+      <div class="row"><span><strong>Total fundraising goal</strong></span><strong>$2,500</strong></div>
     </div>
     <aside class="goal">
       <h3>Every bit helps.</h3>
@@ -767,6 +802,17 @@ donationForm.addEventListener("submit", async (event) => {
     showError("Something went wrong while submitting the form. Please try again.");
   }
 });
+
+// Show the real project video automatically when project-video.mp4 is present.
+const projectVideo = document.getElementById("projectVideo");
+const videoPlaceholder = document.getElementById("videoPlaceholder");
+if (projectVideo && videoPlaceholder) {
+  projectVideo.addEventListener("loadedmetadata", () => {
+    projectVideo.style.display = "block";
+    videoPlaceholder.style.display = "none";
+  });
+}
+
 </script>
 
 </body>
