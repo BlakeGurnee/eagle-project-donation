@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://blakegurnee.me/sitemap.xml
+Sitemap: https://donate.blakegurnee.me/sitemap.xml
